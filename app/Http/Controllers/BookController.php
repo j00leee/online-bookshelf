@@ -44,6 +44,8 @@ class BookController extends Controller
         $book->title = $request->input('title');
         $book->author = $request->input('author');
         $book->genre = $request->input('genre');
+        $book->description = $request->input('description');
+        $book->status = $request->input('status');
         $book->save();
         return redirect('/');
     }
@@ -87,6 +89,8 @@ class BookController extends Controller
         $book->title = $request->input('title');
         $book->author = $request->input('author');
         $book->genre = $request->input('genre');
+        $book->description = $request->input('description');
+        $book->status = $request->input('status');
         $book->save();
         return redirect('/');
     }
@@ -100,7 +104,7 @@ class BookController extends Controller
     public function destroy($id)
     {
         $book = Book::find($id);
-        $student->delete();
+        $book->delete();
         return redirect('/');
     }
 }
