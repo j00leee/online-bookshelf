@@ -18,7 +18,7 @@ class BookController extends Controller
     public function index()
     {
         $books = Book::all();
-        return view('book', ['books' => $books, 'layout' => 'index']);
+        return view('book',['books'=>$books,'layout'=>'index']);
     }
 
     /**
@@ -29,7 +29,7 @@ class BookController extends Controller
     public function create()
     {
         $books = Book::all();
-        return view('book', ['books' => $books, 'layout' => 'create']);
+        return view('book',['books'=>$books,'layout'=>'create']);
     }
 
     /**
@@ -73,7 +73,7 @@ class BookController extends Controller
     {
         $book = Book::find($id);
         $books = Book::all();
-        return view('book', ['books'=>$books, '$book' => $book, 'layout' => 'edit']);
+        return view('book',['books'=>$books,'book'=>$book,'layout'=>'edit']);
     }
 
     /**

@@ -1,6 +1,10 @@
-<div>
+<div class="card mb-3">
+  <img src="" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">List of books</h5>
+    <p class="card-text">This is a list to track books you've read, you're currently reading, and books you're going to read.</p>
     <table class="table">
-        <thead>
+        <thead class="table-dark">
             <tr>
                 <th scope="col">Title</th>
                 <th scope="col">Author</th>
@@ -19,12 +23,13 @@
                 <td>{{ $book->description }}</td>
                 <td>{{ $book->status }}</td>
                 <td>
-                    <a href="#" class="btn btn-sm btn-info">Show</a>
+
                     <a href="{{ url('/edit/'.$book->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                    <a href="" class="btn btn-sm btn-danger">Delete</a>
+
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
+</div>
 </div>

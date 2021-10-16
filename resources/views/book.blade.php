@@ -11,36 +11,96 @@
     <title>Book Data</title>
   </head>
   <body>
-    
+    @include("navbar")  
+
+
     @if($layout == 'index')
-        <div class="container-fluid">
-            <section class="col">
-                @include("bookslist")
-            </section>
-            <section class="col"></section>
+        <div class="container-fluid mt-4">
+            <div class="row">
+                <section class="col-md-7">
+                    @include("bookslist")
+                </section>
+                <section class="col-md-5"></section>
+            </div>
         </div>
     @elseif($layout == 'create')
-        <div class="container-fluid">
-            <section class="col">
-                @include("bookslist")
-            </section>
-            <section class="col">
-
-            </section>
+        <div class="container-fluid mt-4">
+            <div class="row">
+                <section class="col">
+                    @include("bookslist")
+                </section>
+                <section class="col">
+                    <form action="{{ url('/store') }}" method="post">
+                        @csrf
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input name="title" type="text" class="form-control" placeholder="Enter Title">
+                        </div>
+                        <div class="form-group">
+                            <label>Author</label>
+                            <input name="author" type="text" class="form-control" placeholder="Enter the author">
+                        </div>
+                        <div class="form-group">
+                            <label>Genre</label>
+                            <input name="genre" type="text" class="form-control" placeholder="Enter the genre">
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <input name="description" type="text" class="form-control" placeholder="Enter the description">
+                        </div>  
+                        <div class="form-group">
+                            <label>Status</label>
+                            <input name="status" type="text" class="form-control" placeholder="Enter status">
+                        </div>
+                        <input type="submit" class="btn btn-info" value="Save">
+                        <input type="reset" class="btn btn-warning" value="Reset">                   
+                    </form>
+                </section>
+            </div>
         </div>
     @elseif($layout == 'show')
-        <div class="container-fluid">
-            <section class="col">
-                @include("bookslist")
-            </section>
-            <section class="col"></section>
+        <div class="container-fluid mt-4">
+            <div class="row">
+                <section class="col">
+                    @include("bookslist")
+                </section>
+                <section class="col"></section>
+            </div>
         </div>
     @elseif($layout == 'edit')
-        <div class="container-fluid">
-            <section class="col">
-                @include("bookslist")
-            </section>
-            <section class="col"></section>
+        <div class="container-fluid mt-4">
+            <div class="row">
+                <section class="col-md-7">
+                    @include("bookslist")
+                </section>
+                <section class="col-md-5">
+                    <form action="{{ url('/update/'.$book->id) }}" method="post">
+                        @csrf
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input value="{{ $book->title }}" name="title" type="text" class="form-control" placeholder="Enter Title">
+                        </div>
+                        <div class="form-group">
+                            <label>Author</label>
+                            <input value="{{ $book->author }}" name="author" type="text" class="form-control" placeholder="Enter the author">
+                        </div>
+                        <div class="form-group">
+                            <label>Genre</label>
+                            <input value="{{ $book->genre }}" name="genre" type="text" class="form-control" placeholder="Enter the genre">
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <input value="{{ $book->description }}" name="description" type="text" class="form-control" placeholder="Enter the description">
+                        </div>  
+                        <div class="form-group">
+                            <label>Status</label>
+                            <input value="{{ $book->status }}" name="status" type="text" class="form-control" placeholder="Enter status">
+                        </div>
+                        <input type="submit" class="btn btn-info" value="Update">
+                        <input type="reset" class="btn btn-warning" value="Reset">                   
+                    </form>
+                </section>
+            </div>
         </div>
     @endif
 
