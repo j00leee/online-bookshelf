@@ -122,6 +122,11 @@
                 </section>
             </div>
         </div>
+    @elseif($layout == 'delete')  
+        <form action="{{ url('/delete/'.$book->id) }}" method="post">
+            @csrf
+            <input class="btn btn-danger" type="submit" value="Delete" />
+        </form>  
     @endif
 
     <footer></footer>
