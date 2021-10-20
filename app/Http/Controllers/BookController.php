@@ -107,4 +107,16 @@ class BookController extends Controller
         $book->delete();
         return redirect('/');
     }
+
+    public function searchData(Request $request)
+    {
+
+        if($request->isMethod('post'))
+        {
+            $title=$request->get('title');
+            $data=Book::where('title', 'LIKE', '%'. $title . '%')->paginate(5);
+        }
+        
+        return view('book',['books'=>$data, 'layout'=>'index']);
+    }
 }

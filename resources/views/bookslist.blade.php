@@ -3,6 +3,14 @@
   <div class="card-body">
     <h5 class="card-title">List of books</h5>
     <p class="card-text">This is a list to track books you've read, you're currently reading, and books you're going to read.</p>
+    <nav class="navbar navbar-light bg-light">
+        <form class="d-flex bd-highlight mb-3" action="{{ url('/search') }}" method="post">
+            {{csrf_field()}}
+            <input class="form-control p-2 bd-highlight" type="text" name="title" placeholder="Search">
+            <button style="margin-left: 2vw;" class="btn btn-outline-success p-2 bd-highlight" value= "Search" type="submit">Search</button>
+        </form>
+    </nav>
+    <br><br>
     <table class="table">
         <thead class="table-dark">
             <tr>
@@ -23,7 +31,6 @@
                 <td>{{ $book->description }}</td>
                 <td>{{ $book->status }}</td>
                 <td>
-
                     <a href="{{ url('/edit/'.$book->id) }}" class="btn btn-sm btn-warning">Edit</a>
                     <a href="{{ url('/delete/'.$book->id) }}" class="btn btn-sm btn-danger">Delete</a>
                 </td>
