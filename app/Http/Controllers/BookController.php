@@ -115,7 +115,7 @@ class BookController extends Controller
         {
             $title=$request->get('title');
             $data=Book::where('title', 'LIKE', '%'. $title . '%')->paginate(5);
-        }
+        }           
         
         return view('book',['books'=>$data, 'layout'=>'index']);
     }

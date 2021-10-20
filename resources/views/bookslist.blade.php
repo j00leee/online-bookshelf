@@ -3,7 +3,7 @@
   <div class="card-body">
     <h5 class="card-title">List of books</h5>
     <p class="card-text">This is a list to track books you've read, you're currently reading, and books you're going to read.</p>
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light" style="background-color: #87CEEB">
         <form class="d-flex bd-highlight mb-3" action="{{ url('/search') }}" method="post">
             {{csrf_field()}}
             <input class="form-control p-2 bd-highlight" type="text" name="title" placeholder="Search">
