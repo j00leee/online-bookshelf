@@ -113,8 +113,8 @@ class BookController extends Controller
 
         if($request->isMethod('post'))
         {
-            $title=$request->get('title');
-            $data=Book::where('title', 'LIKE', '%'. $title . '%')->paginate(5);
+            $genre=$request->get('genre');
+            $data=Book::where('genre', 'LIKE', '%'. $genre . '%')->paginate(5);
         }           
         
         return view('book',['books'=>$data, 'layout'=>'index']);

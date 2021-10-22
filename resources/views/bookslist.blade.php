@@ -6,7 +6,7 @@
     <nav class="navbar navbar-light" style="background-color: #87CEEB">
         <form style="margin-left: 1vw;" class="d-flex bd-highlight mb-3" action="{{ url('/search') }}" method="post">
             {{csrf_field()}}
-            <input class="form-control p-2 bd-highlight" type="text" name="title" placeholder="Search by title">
+            <input class="form-control p-2 bd-highlight" type="text" name="genre" placeholder="Search by title">
             <button style="margin-left: 2vw;" class="btn btn-outline-success p-2 bd-highlight" value= "Search" type="submit">Search</button>
         </form>
     </nav>
@@ -19,7 +19,7 @@
                 <th scope="col">Genre</th>
                 <th scope="col">Description</th>
                 <th scope="col">Status</th>
-                <th scope="col">Actions</th>
+                <th scope="col" style="width: 6.5vw;">Actions</th>
             </tr>
         </thead>
         <tbody>
